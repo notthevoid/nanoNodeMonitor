@@ -9,7 +9,7 @@
 
 <?php elseif($widgetType == 'monkey'): ?>
 
-<img src="https://monkey.banano.cc/api/v1/monkey/<?php echo $nanoNodeAccount; ?>" style="max-width:250px; display:block; margin: 0 0 0 auto;" />
+<img src="https://monkey.banano.cc/api/v1/monkey/<?php echo $nanoNodeAccount; ?>?format=png&size=512" style="max-width:250px; display:block; margin: 0 0 0 auto;" />
 
 <?php endif; ?>
 <?php endif; ?>

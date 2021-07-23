@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="utf-8">
 
-        <title><?php echo currencyName($currency); ?> Node Monitor - <?php echo $nanoNodeName; ?></title>
+        <title>node.nanners.cc - banano node monitor</title>
 
-        <meta name="Description" content="Nano Node Monitor is a server-side PHP-based monitor for Nano nodes.">
+        <meta name="Description" content="Nano Node Monitor is a server-side PHP-based monitor for Banano/Nano nodes.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="robots" content="all" />
-        <link rel="stylesheet" href="static/css/bootstrap.min.css?v=<?php echo PROJECT_VERSION; ?>" media="screen">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
         <link rel="stylesheet" href="static/css/fontawesome-all.min.css?v=<?php echo PROJECT_VERSION; ?>" media="screen">
-        <link rel="stylesheet" href="static/css/main.css?v=<?php echo PROJECT_VERSION; ?>" media="screen">
+        <!--<link rel="stylesheet" href="static/css/main.css?v=<?php echo PROJECT_VERSION; ?>" media="screen">-->
         <link rel="stylesheet" href="static/themes/<?php echo $themeChoice; ?>/css/theme.css?v=<?php echo PROJECT_VERSION; ?>" media="screen">
+
         <link rel="shortcut icon" href="static/img/favicon/<?php echo currencyName($currency); ?>/favicon.ico">
         <link rel="icon" sizes="16x16 32x32 64x64" href="static/img/favicon/<?php echo currencyName($currency); ?>/favicon.ico">
         <link rel="icon" type="image/png" sizes="196x196" href="static/img/favicon/<?php echo currencyName($currency); ?>/favicon-192.png">
@@ -48,6 +56,3 @@
 
     <!--- add the navbar -->
     <?php include __DIR__ . '/navbar.php'; ?>
-
-    <!-- logo and ticker -->
-    <div class="container">

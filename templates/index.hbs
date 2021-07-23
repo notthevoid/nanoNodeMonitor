@@ -1,137 +1,92 @@
 {{#if newNodeVersionAvailable}}
-<div class="alert alert-dismissible alert-warning">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+<div class="">
+  <button type="button" class="" data-dismiss="alert">&times;</button>
   <strong>Heads up!</strong> A new Nano Node version
   <strong>{{newNodeVersionAvailable}}</strong> is available.
   <a class="alert-link" href="https://github.com/nanocurrency/nano-node/releases/latest" target="_blank" rel="noopener">Download it here!</a>
 </div>
 {{/if}}
 
-{{#if nanoNodeAccount}}
-<div class="row">
-  <div class="col">
-    <h3>Node Account</h3>
-    <ul class="list-group mb-4">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span class="mr-3 pl-2">Address</span>
-        <a href="{{nanoNodeAccountUrl}}" target="_blank" rel="noopener" class="truncate">{{nanoNodeAccount}}</a>
-        <button id="copyAccount" class="btn btn-sm btn-link btn-clipboard" data-clipboard-text="{{nanoNodeAccount}}" title="Copy">
-          <i class="fas fa-clipboard fa-lg"></i>
-        </button>
-      </li>
-    </ul>
+  {{#if nanoNodeAccount}}
+  <div class="">
+    <span class='uk-text-uppercase uk-margin-small-left uk-text-meta'> Node Account Address </span>
+    <div class="uk-margin-right">
+      <span class="uk-label uk-label-banano uk-text-truncate">
+        <a href="#" rel="noopener" class="uk-link-reset repqrcode" uk-tooltip="title: Click to copy; pos: bottom-center; delay: 100;">{{nanoNodeAccount}}</a>
+      </span>
+    </div>
   </div>
-</div>
-{{/if}}
+  {{/if}}
 
-<div class="row">
-  <div class="col-lg-3">
-    <h3>Node</h3>
-    <div class="card mb-4">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <span class="float-left-truncate">Version</span>
-          <span class="float-right-truncate">{{version}}</span>
-        {{#if store_vendor}} <!--Node V21-->
-        <li class="list-group-item">
-          <span class="float-left-truncate">Database</span>
-          <span class="float-right-truncate">{{store_vendor}}</span>
-        </li>
-        {{/if}}
-        </li>
-        <li class="list-group-item">
-          <span class="float-left-truncate">Node Uptime</span>
-          <span class="float-right-truncate">{{formatSeconds nodeUptimeStartup}}</span>
-        </li>
-        <li class="list-group-item">
-          <span class="float-left-truncate">Peers</span>
-          <span class="float-right-truncate">{{formatNumber numPeers}}</span>
-        </li>
-      </ul>
+  <div class="uk-margin-small-top">
+    <span class='uk-text-uppercase uk-margin-small-left uk-text-meta'> Node </span>
+    <div class="">
+      <span class="uk-label uk-label-blue">Version: {{version}}</span>
+      {{#if store_vendor}}
+      <span class="uk-label uk-label-blue">Database: {{store_vendor}}</span>
+      {{/if}}
+      <span class="uk-label uk-label-blue">Node Uptime: {{formatSeconds nodeUptimeStartup}}</span>
+      {{#if nodeUptime}}
+      <span class="uk-label uk-label-blue">Node Uptime {{nodeUptime}}%</span>
+      {{/if}}
+      <span class="uk-label uk-label-blue">Peers: {{formatNumber numPeers}}</span>
     </div>
   </div>
 
-  <div class="col-lg-3">
-    <h3>Blocks</h3>
-    <div class="card mb-4">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <span class="float-left-truncate">Current Block</span>
-          <span class="float-right-truncate">{{formatNumber currentBlock}}</span>
-        </li>
-        <li class="list-group-item">
-          <span class="float-left-truncate">Cemented Blocks</span>
-          <span class="float-right-truncate">{{formatNumber cementedBlocks}}</span>
-        </li>
-        <li class="list-group-item">
-          <span class="float-left-truncate">Unchecked Blocks</span>
-          <span class="float-right-truncate">{{formatNumber uncheckedBlocks}}</span>
-        </li>
-        <li class="list-group-item">         
-          <span class="float-left-truncate">Sync Status</span>
-          <span class="float-right-truncate">
-            {{#if blockSync}}
-              {{formatNumber blockSync}} %
-            {{else}} 
-              N/A 
-            {{/if}}
-            </span>
-        </li>
-      </ul>
+  <div class="uk-margin-small-top">
+    <span class='uk-text-uppercase uk-margin-small-left uk-text-meta'> Blocks </span>
+    <div class="">
+      <span class="uk-label uk-label-blue">Current Block: {{formatNumber currentBlock}}</span>
+      <span class="uk-label uk-label-blue">Cemented Blocks: {{formatNumber cementedBlocks}}</span>
+      <span class="uk-label uk-label-blue">Unchecked Blocks: {{formatNumber uncheckedBlocks}}</span>
+      <!--<span class="uk-label uk-label-blue">Sync Status: 
+      {{#if blockSync}}
+        {{formatNumber blockSync}} %
+      {{else}} 
+        N/A 
+      {{/if}}</span>-->
     </div>
   </div>
 
-  <div class="col-lg-3">
-    <h3>Node Account</h3>
-    <ul class="list-group mb-4">
-      <li class="list-group-item">
-        <span class="float-left-truncate">Balance</span>
-        <span class="float-right-truncate">{{formatNano accBalanceMnano}} {{currencySymbol}}</span>
-      </li>
-      <li class="list-group-item">
-        <span class="float-left-truncate">Pending</span>
-        <span class="float-right-truncate">{{formatNano accPendingMnano 6}} {{currencySymbol}}</span>
-      </li>
-      <li class="list-group-item">
-        <span class="float-left-truncate">Representative</span>
-        <span class="float-right-truncate">
-           {{#if repAccount}}
-           <a href="{{repAccountUrl}}" target="_blank" rel="noopener">{{repAccount}}</a>
-           {{else}} Account not opened {{/if}}
-        </span>
-      </li>
-      <li class="list-group-item">
-        <span class="float-left-truncate">Voting Weight</span>
-        <span class="float-right-truncate">{{formatNano votingWeight 6}} {{currencySymbol}}</span>       
-      </li>
-    </ul>
+  <div class="uk-margin-small-top">
+    <span class='uk-text-uppercase uk-margin-small-left uk-text-meta'> Node Account </span>
+    <div class="uk-margin-right">
+      <!--<span class="uk-label uk-label-blue uk-text-truncate ">Representative: 
+        {{#if repAccount}}
+        <a href="{{repAccountUrl}}" target="_blank" rel="noopener" class="uk-link-reset">{{repAccount}}</a>
+        {{else}} Account not opened {{/if}}
+      </span>-->
+      <span class="uk-label uk-label-blue">Voting Weight: {{formatNano votingWeight 6}} {{currencySymbol}}</span>
+      <span class="uk-label uk-label-blue">Balance: {{formatNano accBalanceMnano}} {{currencySymbol}}</span>
+      <span class="uk-label uk-label-blue">Pending: {{formatNano accPendingMnano 6}} {{currencySymbol}}</span>
+    </div>
   </div>
 
-  <div class="col-lg-3">
-    <h3>System</h3>
-    <ul class="list-group mb-4">
-      <li class="list-group-item">
-        <span class="float-left-truncate">Host</span>
-        <span class="float-right-truncate">{{nanoNodeName}}</span>        
-      </li>
-      <li class="list-group-item">
-        <span class="float-left-truncate">Location</span>
-        <span class="float-right-truncate">
-          {{#if nodeLocation}}
-            {{nodeLocation}}
-          {{else}}
-            N/A
-          {{/if}}
-        </span>
-      </li>
-      <li class="list-group-item">
-        <span class="float-left-truncate">Load</span>
-        <span class="float-right-truncate">{{formatNumber systemLoad}}</span>
-      </li>
-      <li class="list-group-item">
-        <span class="float-left-truncate">Memory Used</span>
-        <span class="float-right-truncate">{{formatNumber usedMem}} / {{formatNumber totalMem}} MB</span>
-      </li>
-    </ul>
+  <div class="uk-margin-small-top">
+    <span class='uk-text-uppercase uk-margin-small-left uk-text-meta'> System </span>
+    <div class="">
+      <span class="uk-label uk-label-blue">Host: {{nanoNodeName}}</span>
+      <span class="uk-label uk-label-blue">Location: 
+      {{#if nodeLocation}}
+        {{nodeLocation}}
+      {{else}}
+        N/A
+      {{/if}}
+      </span>
+      <span class="uk-label uk-label-blue">Load: {{formatNumber systemLoad}}</span>
+      <span class="uk-label uk-label-blue">Memory Used: {{formatNumber usedMem}} / {{formatNumber totalMem}} MB</span>
+    </div>
   </div>
+
+  <div class="uk-margin-medium-top">
+    <p class='uk-text-small uk-text-meta uk-margin-remove-bottom'>Powered by <a href="https://github.com/NanoTools/nanoNodeMonitor" target="_blank" rel="noopener">Nano Node Monitor</a></p>
+  </div>
+
+  <div class="uk-margin-small-top" id="">
+    <!--<span class="uk-label uk-label-banano"><a href="#qrmodal" class="uk-link-reset" uk-toggle>Copy Address | Scan QR Code</a></span>-->
+    <span class="uk-label uk-label-banano"><a href="#qr" class="uk-link-reset" uk-toggle>QR Code</a></span>
+    <span class="uk-label uk-label-banano"><a href="#instructions" class="uk-link-reset" uk-toggle>How To</a></span>
+    <span class="uk-label uk-label-banano"><a href="#donations" class="uk-link-reset" uk-toggle>Donations</a></span>
+  </div>
+
 </div>

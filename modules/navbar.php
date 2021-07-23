@@ -1,20 +1,28 @@
-<div class="navbar navbar-expand-lg n-navbar-theme fixed-top">
-  <div class="container">
-    <a href="index.php" class="navbar-brand">
-      <img src="static/img/nano-mark-<?php echo $themeChoice; ?>.svg" alt="Nano Logo" style="height: 1em;"/>
-      <span class="n-logo-theme"><?php echo currencyName($currency); ?> Node Monitor</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+<div class="uk-container uk-container-xsmall">
 
-      <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo PROJECT_URL; ?>" target="_blank" rel="noopener">GitHub Project</a>
-        </li>
-      </ul>
+  <div class="uk-position-relative">
+    <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar="mode: click;">
+      <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+          <li>
+            <a href="#" class="inner-switch" uk-tooltip='title:Dark mode; pos: right; delay: 100;'><ion-icon name="invert-mode-outline" style="font-size: 1.4em;"></ion-icon></a>
+          </li>
+        </ul>
+      </div>
 
-    </div>
+      <div class="uk-navbar-center">
+        <ul class="uk-navbar-nav">
+          <li class="uk-active"><a href="../">node.nanners.cc</a></li>
+        </ul>
+      </div>
+
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li>
+            <a href="https://www.nanners.cc/" target="_blank" uk-tooltip='title:nanners.cc; pos: left; delay: 100;'><ion-icon name="hardware-chip-outline" style="font-size: 1.4em;"></ion-icon></a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
   </div>
-</div>

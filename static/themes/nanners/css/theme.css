@@ -1,0 +1,38 @@
+.uk-card {
+    border-radius: 12px;
+}
+.uk-modal-body {
+    border-radius: 12px;
+}
+.uk-button-banano-green {
+    background-color: #4CBF4B !important;
+    color: #212124 !important;
+}
+.uk-label{
+    cursor: default;
+}
+.uk-label-banano {
+    background-color: #fff29c !important;
+    color: #807000 !important;
+}
+.uk-label-green {
+    background-color: #dfffe4 !important;
+    color: #004910 !important;
+}
+.uk-label-blue {
+    background-color: #c8d8ff !important;
+    color: #001647 !important;
+}
+.uk-label-red {
+    background-color: #ffd3da !important;
+    color: #450000 !important;
+}
+.uk-label-muted {
+    background-color: none !important;
+}
+ion-icon {
+    pointer-events: none;
+}  
+.uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
+    padding: 0 8px;
+}
